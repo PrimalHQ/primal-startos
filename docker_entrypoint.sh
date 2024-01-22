@@ -11,7 +11,8 @@ NGINX_CONF='server {
 
 server {
     listen 8080;
-    listen 3443 ssl http2;
+    listen 3443 ssl;
+    http2 on;
     ssl_certificate /mnt/cert/main.cert.pem;
     ssl_certificate_key /mnt/cert/main.key.pem;
 
