@@ -9,10 +9,10 @@ RUN npm cache clean --force && \
     npm run build && \
     rm -rf /root/.npm
 
-FROM busybox:latest AS final
+FROM nginx:alpine3.18 AS final
 
-COPY --from=build /app/dist /primal
-RUN chown -R nobody:nobody /primal
+WORKDIR /usr/share/nginx/html
+COPY --from=build /app/dist ./
 
 ADD ./docker_entrypoint.sh /usr/local/bin/docker_entrypoint.sh
 RUN chmod a+x /usr/local/bin/docker_entrypoint.sh

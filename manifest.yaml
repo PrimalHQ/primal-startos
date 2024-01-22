@@ -24,6 +24,7 @@ main:
   args: []
   mounts:
     main: /root
+    cert: /mnt/cert
 health-checks:
   web-ui:
     name: Web UI
@@ -34,6 +35,9 @@ properties: ~
 volumes:
   main:
     type: data
+  cert:
+    type: certificate
+    interface-id: main
 interfaces:
   main:
     name: User Interface
@@ -41,10 +45,11 @@ interfaces:
     tor-config:
       port-mapping:
         80: "3000"
+        443: "3443"
     lan-config:
       443:
         ssl: true
-        internal: 3000
+        internal: 8080
     ui: true
     protocols:
       - tcp
