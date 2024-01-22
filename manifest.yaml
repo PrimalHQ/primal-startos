@@ -4,7 +4,7 @@ title: "Primal"
 version: 0.93.14
 release-notes: "Initial release of Primal for StartOS"
 license: MIT
-wrapper-repo: "https://github.com/k0gen/primal-startos"
+wrapper-repo: "https://github.com/PrimalHQ/primal-startos"
 upstream-repo: "https://github.com/PrimalHQ/primal-web-app"
 support-site: "https://github.com/PrimalHQ/primal-web-app/issues"
 marketing-site: "https://primal.net/"
