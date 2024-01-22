@@ -41,7 +41,7 @@ volumes:
 interfaces:
   main:
     name: User Interface
-    description: A simple user interface that is expected to display the text "Hello Word"
+    description: Main user interface for interacting with Primal in a web browser.
     tor-config:
       port-mapping:
         80: "3000"
