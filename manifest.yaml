@@ -4,7 +4,7 @@ title: "Primal"
 version: 0.93.14
 release-notes: "Initial release of Primal for StartOS"
 license: MIT
-wrapper-repo: "https://github.com/k0gen/primal-startos"
+wrapper-repo: "https://github.com/PrimalHQ/primal-startos"
 upstream-repo: "https://github.com/PrimalHQ/primal-web-app"
 support-site: "https://github.com/PrimalHQ/primal-web-app/issues"
 marketing-site: "https://primal.net/"
@@ -24,6 +24,7 @@ main:
   args: []
   mounts:
     main: /root
+    cert: /mnt/cert
 health-checks:
   web-ui:
     name: Web UI
@@ -34,17 +35,21 @@ properties: ~
 volumes:
   main:
     type: data
+  cert:
+    type: certificate
+    interface-id: main
 interfaces:
   main:
     name: User Interface
-    description: A simple user interface that is expected to display the text "Hello Word"
+    description: Main user interface for interacting with Primal in a web browser.
     tor-config:
       port-mapping:
         80: "3000"
+        443: "3443"
     lan-config:
       443:
         ssl: true
-        internal: 3000
+        internal: 8080
     ui: true
     protocols:
       - tcp
